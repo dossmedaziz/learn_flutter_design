@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tuto_app/misc/colors.dart';
 import 'package:tuto_app/widgets/app_large_text.dart';
+import 'package:tuto_app/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 70, left: 20),
+            padding: const EdgeInsets.only(top: 30, left: 20),
             child: Row(
               children: [
                 Icon(Icons.menu, size: 30, color: Colors.black),
@@ -35,12 +36,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 10),
           Container(
             margin: const EdgeInsets.only(left: 20),
             child: AppLargeText(text: "Discover"),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 10),
           Container(
             child: Align(
               alignment: Alignment.centerLeft,
@@ -62,8 +63,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top : 10 , left:10, right: 10),
-              height: 300,
+              padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+              height: 230,
               width: double.maxFinite,
               child: TabBarView(
                 controller: _tabController,
@@ -73,9 +74,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     itemCount: 3,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        margin: const EdgeInsets.only(left : 10),
-                        width: 200,
-                        height: 300,
+                        margin: const EdgeInsets.only(left: 10),
+                        width: 150,
+                        height: 200,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
@@ -88,7 +89,49 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Text("There"),
                   Text("Bye"),
                 ],
-              ))
+              )),
+          SizedBox(height: 30),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(text: "Explore More", size: 22),
+                AppText(
+                  text: "See all",
+                  color: AppColors.textColor1,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 120,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, index) {
+                  return Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 50),
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage("img/mountain.jpeg"),
+                                fit: BoxFit.cover)),
+                      )
+                    ],
+                  );
+                }),
+          )
         ],
       ),
     );
