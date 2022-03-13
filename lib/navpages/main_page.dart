@@ -33,19 +33,19 @@ class _MainPageState extends State<MainPage> {
           currentIndex: currentIndex,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey.withOpacity(0.5),
-          showSelectedLabels: false,
+          showSelectedLabels: true,
           showUnselectedLabels: false,
           elevation: 0,
           onTap: onTap,
           items: [
             const BottomNavigationBarItem(
-                icon: Icon(Icons.apps), label: "Home"),
+                icon: Icon(Icons.home_outlined), label: "Home"),
             const BottomNavigationBarItem(
-                icon: Icon(Icons.bar_chart_sharp), label: "Bar"),
+                icon: Icon(Icons.bar_chart_outlined), label: "Bar"),
             const BottomNavigationBarItem(
-                icon: Icon(Icons.search), label: "Serach"),
+                icon: Icon(Icons.search), label: "Search"),
             const BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline), label: "Me"),
+                icon: Icon(Icons.person_outline), label: "Profile"),
           ]),
     );
   }

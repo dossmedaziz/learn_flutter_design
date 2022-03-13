@@ -12,6 +12,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  var images = {
+    "balloning.png" : "Balloning",
+    "hiking.png" : "Hiking",
+    "kayaking.png" : "Kayaking",
+    "snorkling.png" : "Snorkling",
+  } ;
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -26,7 +32,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 Icon(Icons.menu, size: 30, color: Colors.black),
                 Expanded(child: Container()),
                 Container(
-                  margin: EdgeInsets.only(right: 20),
+                  margin: EdgeInsets.only(right: 20,top: 30),
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
@@ -115,20 +121,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 50),
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                            image: DecorationImage(
-                                image: AssetImage("img/mountain.jpeg"),
-                                fit: BoxFit.cover)),
-                      )
-                    ],
+                  return Container(
+                    margin: const EdgeInsets.only(right : 30),
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: const EdgeInsets.only(right: 50),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white,
+                              image: DecorationImage(
+                                  image: AssetImage("img/mountain.jpeg"),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Container(
+                          child: AppText(text: "Kayaking",color: AppColors.textColor2,),
+                        )
+                      ],
+                    ),
                   );
                 }),
           )
